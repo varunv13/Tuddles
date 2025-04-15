@@ -15,6 +15,20 @@ const Dashboard = () => {
   const joinDateISO = auth?.user?.created_at;
   const joiningDate = new Date(joinDateISO);
 
+  const DashboardButton = ({ label, path = "#" }) => {
+    const navigate = useNavigate();
+  
+    return (
+      <button
+        onClick={() => navigate(path)}
+        className="w-full px-4 py-2 bg-blue-600 rounded-lg text-white font-medium shadow hover:bg-blue-700 transition"
+      >
+        {label}
+      </button>
+    );
+  };
+  
+
   // Function for converting Date to string
   function formatDate(date) {
     const options = { year: "numeric", month: "long", day: "numeric" };
