@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="cursor-custom w-screen h-screen font-poppins">
       <Routes>
-        {/* {cookie ? ( */}
+        {cookie ? (
           <>
             <Route path="/" element={<Home />} />
             <Route path='/search-product' element={<SearchResult/>} />
@@ -47,14 +47,14 @@ function App() {
             <Route path="/vet" element={< Vet/>} />
             <Route path="/adapt" element={< Adapt/>} />
             <Route path='/contact' element={<Contact/>}/>
-          {/* </> */}
-        {/* ) : (
-          <> */}
+          </>
+         ) : (
+         <> 
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="*" element={<Signup />} />
           </>
-        {/* )} */}
+      )}
       </Routes>
     </div>
   );
