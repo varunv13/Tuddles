@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="md:w-[316px]">
             <img alt="Tuddles Logo" className="w-1/2 mb-3" />
             <p className="text-[14px] leading-snug text-white/80">
-              Tuddles is your go-to learning companion, helping students and tutors connect, grow, and achieve academic success with ease and trust.
+            At Tuddles, we believe pets aren't just animals — they're family. Our mission is to make pet parenting easier, happier, and healthier through vet support, pet products, and care services.
             </p>
             <div className="mt-3 flex gap-3 text-white">
               <a href="#"><FaFacebookF size={20} className="hover:text-blue-500" /></a>
