@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "../Wrapper/wrapper";
+import Wrapper from "../Layout/wrapper";
 import { useAuth } from "../../context/AuthContext";
 import { Outlet, useNavigate } from "react-router-dom";
 

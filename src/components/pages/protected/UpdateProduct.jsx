@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import Wrapper from '../../Wrapper/wrapper';
-import { useAuth } from '../../../context/AuthContext';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import Loading from '../../../shared/Loading';
-import axios from 'axios';
-import { backend_url } from '../../../utils/Config';
-import TextInput from '../../../shared/TextInput'; // Assuming this is a reusable component
+import React, { useEffect, useState } from "react";
+import Wrapper from "../../Layout/wrapper";
+import { useAuth } from "../../../context/AuthContext";
+import { useNavigate, useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
+import Loading from "../../../shared/Loading";
+import axios from "axios";
+import { backend_url } from "../../../utils/Config";
+import TextInput from "../../../shared/TextInput"; // Assuming this is a reusable component
 
 const UpdateProduct = () => {
   const location = useLocation(); // Get the location object from useLocation
   const { productId } = location.state || {}; // Assuming the productId was passed through location.state
   const [auth] = useAuth();
   const [product, setProduct] = useState(null); // State to store product details
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [brand, setBrand] = useState('');
-  const [price, setPrice] = useState('');
-  const [category, setCategory] = useState('');
-  const [images, setImages] = useState('');
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [brand, setBrand] = useState("");
+  const [price, setPrice] = useState("");
+  const [category, setCategory] = useState("");
+  const [images, setImages] = useState("");
   const [photo, setPhoto] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -28,14 +28,16 @@ const UpdateProduct = () => {
   // Fetch product data by ID
   useEffect(() => {
     if (!productId) {
-      toast.error('Product ID is missing');
-      navigate('/dashboard');
+      toast.error("Product ID is missing");
+      navigate("/dashboard");
       return;
     }
 
     const fetchProductData = async () => {
       try {
-        const response = await axios.get(`${backend_url}/api/v1/products/p/${productId}`);
+        const response = await axios.get(
+          `${backend_url}/api/v1/products/p/${productId}`,
+        );
         const productData = response.data.data;
         setProduct(productData);
         setName(productData.name);
@@ -46,9 +48,9 @@ const UpdateProduct = () => {
         setImages(productData.product_Images);
         setIsLoading(false);
       } catch (error) {
-        console.error('Error fetching product details', error);
-        toast.error('Failed to fetch product details');
-        navigate('/dashboard');
+        console.error("Error fetching product details", error);
+        toast.error("Failed to fetch product details");
+        navigate("/dashboard");
       }
     };
 
@@ -59,28 +61,31 @@ const UpdateProduct = () => {
   const handleImageUpload = async (file) => {
     setIsUploading(true);
     const formData = new FormData();
-    formData.append('file', file);
-    formData.append('upload_preset', 'PawsPoint_image');
-    formData.append('cloud_name', 'dfjcqaurp');
-    formData.append('folder', 'product_images');
+    formData.append("file", file);
+    formData.append("upload_preset", "PawsPoint_image");
+    formData.append("cloud_name", "dfjcqaurp");
+    formData.append("folder", "product_images");
 
     try {
-      const response = await fetch('https://api.cloudinary.com/v1_1/dfjcqaurp/image/upload', {
-        method: 'POST',
-        body: formData,
-      });
+      const response = await fetch(
+        "https://api.cloudinary.com/v1_1/dfjcqaurp/image/upload",
+        {
+          method: "POST",
+          body: formData,
+        },
+      );
 
       if (!response.ok) {
-        throw new Error('Failed to upload image to Cloudinary');
+        throw new Error("Failed to upload image to Cloudinary");
       }
 
       const data = await response.json();
       setImages(data.secure_url); // Set the uploaded image URL
-      toast.success('Image uploaded successfully!');
+      toast.success("Image uploaded successfully!");
     } catch (error) {
       console.error(error);
-      toast.error('Failed to upload image!');
-      setImages(''); // Clear image on failure
+      toast.error("Failed to upload image!");
+      setImages(""); // Clear image on failure
     } finally {
       setIsUploading(false);
     }
@@ -91,7 +96,7 @@ const UpdateProduct = () => {
 
     // Check if all fields are filled
     if (!name || !brand || !price || !description || !category || !images) {
-      return toast.error('Please fill out all fields');
+      return toast.error("Please fill out all fields");
     }
 
     try {
@@ -105,31 +110,32 @@ const UpdateProduct = () => {
         product_Images: images, // Use the updated image URL
       };
 
-      const response = await axios.put(`${backend_url}/api/v1/products/p/${productId}`, updatedData);
+      const response = await axios.put(
+        `${backend_url}/api/v1/products/p/${productId}`,
+        updatedData,
+      );
 
       if (response.data.statusCode === 201) {
-        toast.success('Product updated successfully');
-        navigate('/dashboard'); // Redirect after successful product update
+        toast.success("Product updated successfully");
+        navigate("/dashboard"); // Redirect after successful product update
       } else {
-        toast.error('Failed to update Product');
+        toast.error("Failed to update Product");
       }
     } catch (error) {
-      console.error('Product update failed', error);
-      toast.error('Product update failed. Please try again.');
+      console.error("Product update failed", error);
+      toast.error("Product update failed. Please try again.");
     }
   };
-
-
 
   // Authentication check
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (auth?.user && auth?.user?.user_Role === 'seller') {
+      if (auth?.user && auth?.user?.user_Role === "seller") {
         setIsLoading(false);
-        toast.success('Authentication Successful');
+        toast.success("Authentication Successful");
       } else {
-        navigate('/dashboard');
-        toast.error('Authentication failed');
+        navigate("/dashboard");
+        toast.error("Authentication failed");
       }
     }, 3000);
 
@@ -144,8 +150,12 @@ const UpdateProduct = () => {
     <Wrapper>
       <div className="w-full bg-night flex flex-col justify-center items-center">
         <div className="h-fit w-4/5 bg-slate-800 flex flex-col justify-center items-center">
-          <h1 className="text-emerald-400 text-2xl font-extrabold">UPDATE PRODUCT</h1>
-          <form className="w-full flex flex-col justify-center items-center space-y-4" onSubmit={handleSubmit}>
+          <h1 className="text-emerald-400 text-2xl font-extrabold">
+            UPDATE PRODUCT
+          </h1>
+          <form
+            className="w-full flex flex-col justify-center items-center space-y-4"
+            onSubmit={handleSubmit}>
             <TextInput
               title="Product Name"
               placeHolder="Enter your product name..."
@@ -178,7 +188,9 @@ const UpdateProduct = () => {
               value={price}
               setValue={setPrice}
             />
-            <label htmlFor="categories" className="block mb-2 text-sm font-medium text-white">
+            <label
+              htmlFor="categories"
+              className="block mb-2 text-sm font-medium text-white">
               Select a category
             </label>
             <select
@@ -186,8 +198,7 @@ const UpdateProduct = () => {
               onChange={(e) => setCategory(e.target.value)}
               value={category}
               required
-              className="w-3/4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            >
+              className="w-3/4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
               <option value="Food">Food</option>
               <option value="Accessories">Accessories</option>
               <option value="Cages">Cages</option>
@@ -208,7 +219,7 @@ const UpdateProduct = () => {
                 }}
                 className="bg-yellow-200"
               />
-              <img src={product?.product_Images}/>
+              <img src={product?.product_Images} />
               {photo && (
                 <div className="text-center">
                   <img
@@ -222,13 +233,12 @@ const UpdateProduct = () => {
             <button
               className={`w-full h-12 text-white rounded-3xl transition duration-300 ${
                 isUploading || !images
-                  ? 'bg-gray-400 cursor-not-allowed'
-                  : 'bg-green-500 hover:bg-green-600'
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-green-500 hover:bg-green-600"
               }`}
               type="submit"
-              disabled={isUploading || !images}
-            >
-              {isUploading ? 'Uploading...' : 'Update Product'}
+              disabled={isUploading || !images}>
+              {isUploading ? "Uploading..." : "Update Product"}
             </button>
           </form>
         </div>

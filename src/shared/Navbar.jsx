@@ -52,12 +52,12 @@ const Navbar = ({ currentRoute }) => {
   };
 
   return (
-    <nav className="bg-blue-700 border-black py-2.5 w-full">
+    <nav className="bg-navbar-blue p-4 w-full">
       <div className="flex flex-wrap items-center justify-between max-w-screen-xl h-full px-4 mx-auto">
         {/* Logo */}
         <a href="#" className="flex items-center">
           <img
-            // src={logo}
+            src={logo}
             className="h-12 w-16 mr-3"
             alt="Tuddles Logo"
           />
@@ -140,7 +140,7 @@ const Navbar = ({ currentRoute }) => {
         <div
           className={`${
             isMobileMenuOpen ? "block" : "hidden"
-          } items-center justify-between bg-blue-700 z-40 w-full lg:flex lg:w-auto lg:order-1`}
+          } items-center justify-between bg-navbar-blue p-4 z-40 w-full lg:flex lg:w-auto lg:order-1`}
           id="mobile-menu-2">
           <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
             <li>

@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="flex flex-col justify-between gap-6 md:flex-row">
           {/* Left Section */}
           <div className="md:w-[316px]">
-            <img alt="Tuddles Logo" className="w-1/2 mb-3" />
+            <img src={logo} alt="Tuddles Logo" className="w-1/2 mb-3" />
             <p className="text-[14px] leading-snug text-white/80">
               At Tuddles, we believe pets aren't just animals — they're family.
               Our mission is to make pet parenting easier, happier, and

@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../shared/Navbar";
-import Wrapper from "../Wrapper/wrapper";
+import Wrapper from "../Layout/wrapper";
 import HeaderCarousel from "../../shared/HeaderCarousel";
 import CategoriesCard from "../../shared/CategoriesCard";
 import Card from "../../shared/Card";

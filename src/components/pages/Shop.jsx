@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Wrapper from "../Wrapper/wrapper";
+import Wrapper from "../Layout/wrapper";
 import axios from "axios";
 import { backend_url } from "../../utils/Config";
 import ProductWithOption from "../../shared/ProductWithOption";

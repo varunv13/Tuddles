@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Wrapper from "../Wrapper/wrapper";
+import Wrapper from "../Layout/wrapper";
 import { useNavigate, useParams } from "react-router-dom";
 import { backend_url } from "../../utils/Config";
 import { useAuth } from "../../context/AuthContext";

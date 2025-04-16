@@ -18,9 +18,11 @@ export default {
         'custom': 'url("cursor2.cur"),pointer', // Use a custom cursor image if desired
       },
       colors:{
-        'primary':'#faf0e6',
-        'secondary':'#DAD7CD',
-        'night':'#CEEAD6'
+        'primary': '#F4E1D2', // Soft peachy cream for a warmer feel
+        'secondary': '#FFECDB', // Light terracotta beige for complementing contrast
+        'night': '#CEEAD6', // Cool tone for a balanced look
+        'accent': '#FF7F50', // Optional accent color for buttons or highlights
+        'navbar-blue': '#A2C9E3',
       },
       backgroundImage: {
  
