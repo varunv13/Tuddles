@@ -2,6 +2,7 @@ import React from "react";
 import Wrapper from "../Wrapper/wrapper";
 import { useAuth } from "../../context/AuthContext";
 import { Outlet, useNavigate } from "react-router-dom";
+
 const Dashboard = () => {
   const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
@@ -17,17 +18,15 @@ const Dashboard = () => {
 
   const DashboardButton = ({ label, path = "#" }) => {
     const navigate = useNavigate();
-  
+
     return (
       <button
         onClick={() => navigate(path)}
-        className="w-full px-4 py-2 bg-blue-600 rounded-lg text-white font-medium shadow hover:bg-blue-700 transition"
-      >
+        className="w-full px-4 py-2 bg-blue-600 rounded-lg text-white font-medium shadow hover:bg-blue-700 transition">
         {label}
       </button>
     );
   };
-  
 
   // Function for converting Date to string
   function formatDate(date) {
@@ -65,8 +64,7 @@ const Dashboard = () => {
           </p>
           <button
             onClick={() => navigate("/profile")}
-            className="mt-5 px-6 py-2 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold hover:scale-105 active:scale-95 transition-all duration-300 shadow-md"
-          >
+            className="mt-5 px-6 py-2 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold hover:scale-105 active:scale-95 transition-all duration-300 shadow-md">
             Edit Profile
           </button>
         </div>

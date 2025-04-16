@@ -1,14 +1,13 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import Navbar from '../../shared/Navbar'
-import Wrapper from '../Wrapper/wrapper'
-import HeaderCarousel from '../../shared/HeaderCarousel'
-import CategoriesCard from '../../shared/CategoriesCard'
-import Card from '../../shared/Card'
-import { useAuth } from '../../context/AuthContext'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../../shared/Navbar";
+import Wrapper from "../Wrapper/wrapper";
+import HeaderCarousel from "../../shared/HeaderCarousel";
+import CategoriesCard from "../../shared/CategoriesCard";
+import Card from "../../shared/Card";
+import { useAuth } from "../../context/AuthContext";
 
 const Home = () => {
-
   // Dummy Data
   const products = [
     {
@@ -20,7 +19,8 @@ const Home = () => {
       price: 59.99,
       discountedPrice: 44.99,
       onAddToCart: () => console.log("Added Zinc Classic Hoodie to cart"),
-      onWishlistClick: () => console.log("Zinc Classic Hoodie added to wishlist"),
+      onWishlistClick: () =>
+        console.log("Zinc Classic Hoodie added to wishlist"),
     },
     {
       title: "Zinc Streetwear Cap",
@@ -31,7 +31,8 @@ const Home = () => {
       price: 29.99,
       discountedPrice: 24.99,
       onAddToCart: () => console.log("Added Zinc Streetwear Cap to cart"),
-      onWishlistClick: () => console.log("Zinc Streetwear Cap added to wishlist"),
+      onWishlistClick: () =>
+        console.log("Zinc Streetwear Cap added to wishlist"),
     },
     {
       title: "Zinc Minimalist Sneakers",
@@ -42,7 +43,8 @@ const Home = () => {
       price: 89.99,
       discountedPrice: 69.99,
       onAddToCart: () => console.log("Added Zinc Minimalist Sneakers to cart"),
-      onWishlistClick: () => console.log("Zinc Minimalist Sneakers added to wishlist"),
+      onWishlistClick: () =>
+        console.log("Zinc Minimalist Sneakers added to wishlist"),
     },
     {
       title: "Zinc Performance Jacket",
@@ -53,19 +55,22 @@ const Home = () => {
       price: 109.99,
       discountedPrice: 89.99,
       onAddToCart: () => console.log("Added Zinc Performance Jacket to cart"),
-      onWishlistClick: () => console.log("Zinc Performance Jacket added to wishlist"),
+      onWishlistClick: () =>
+        console.log("Zinc Performance Jacket added to wishlist"),
     },
     {
       title: "Zinc Tech Backpack",
       url: "https://prokleanhome.com/cdn/shop/collections/Pet_safe_1200x737.jpg?v=1646907990",
-      shortDescription: "Sleek backpack with tech compartments and zinc-tone design.",
+      shortDescription:
+        "Sleek backpack with tech compartments and zinc-tone design.",
       description:
         "Organize your gear in style with this zinc-tone backpack. Features padded laptop sleeve, USB port, and waterproof compartments for daily commutes or travel.",
       price: 79.99,
       discountedPrice: 59.99,
       onAddToCart: () => console.log("Added Zinc Tech Backpack to cart"),
-      onWishlistClick: () => console.log("Zinc Tech Backpack added to wishlist"),
-    },    
+      onWishlistClick: () =>
+        console.log("Zinc Tech Backpack added to wishlist"),
+    },
     {
       title: "Zinc Trail Runners",
       url: "https://i.ytimg.com/vi/j-P08ix87xM/maxresdefault.jpg",
@@ -75,7 +80,8 @@ const Home = () => {
       price: 99.99,
       discountedPrice: 79.99,
       onAddToCart: () => console.log("Added Zinc Trail Runners to cart"),
-      onWishlistClick: () => console.log("Zinc Trail Runners added to wishlist"),
+      onWishlistClick: () =>
+        console.log("Zinc Trail Runners added to wishlist"),
     },
     {
       title: "Zinc Urban Watch",
@@ -97,33 +103,29 @@ const Home = () => {
       price: 69.99,
       discountedPrice: 49.99,
       onAddToCart: () => console.log("Added Zinc Wireless Earbuds to cart"),
-      onWishlistClick: () => console.log("Zinc Wireless Earbuds added to wishlist"),
-    },    
+      onWishlistClick: () =>
+        console.log("Zinc Wireless Earbuds added to wishlist"),
+    },
   ];
-  
 
-  const navigate=useNavigate()
-  const [auth,setAuth]=useAuth()
+  const navigate = useNavigate();
+  const [auth, setAuth] = useAuth();
   return (
     <>
-    <Wrapper current={'home'}>
-    <div className='text-2xl cursor-custom w-full h-auto bg-night'>
-    
-      {/* corousal */}
-      <HeaderCarousel/>
-      {/* corousal end */}
-   
+      <Wrapper current={"home"}>
+        <div className="text-2xl cursor-custom w-full h-auto bg-night">
+          {/* corousal */}
+          <HeaderCarousel />
+          {/* corousal end */}
 
-   
-     {/* bank offer start  */}
-      {/* <div className='w-full px-5 my-2'>
+          {/* bank offer start  */}
+          {/* <div className='w-full px-5 my-2'>
          <img src='https://supertails.com/cdn/shop/files/Homepage_desk-min_34987ee0-64bf-417a-b4f8-9af815c22588.png?v=1732992049'></img>
       </div> */}
-     {/* bank offer end  */}
+          {/* bank offer end  */}
 
-     
-     {/* Popular products  */}
-     {/* <div className='flex flex-col w-full h-fit my-2 p-6'>
+          {/* Popular products  */}
+          {/* <div className='flex flex-col w-full h-fit my-2 p-6'>
        <div className='flex justify-center items-center'>
         <h1 className='font-extrabold font-title_font tracking-wider text-2xl text-amber-300 drop-shadow-[0px_0px_30px_rgba(192,33,110,1)] p-3'>Popular Products</h1>
        </div>
@@ -136,82 +138,80 @@ const Home = () => {
         <ProductCard  ur={'https://supertails.com/cdn/shop/files/SKATRSTOYS_19.png?v=1714715536'}/>
        </div>
       </div> */}
-     {/* Popular products end  */}
-  
+          {/* Popular products end  */}
 
-              {/* New Code Begins */}
+          {/* New Code Begins */}
 
-  {/* Product Code Begins Here */}
-  
-  <div className=' bg-zinc-900 pt-10' >
-  <h1 className='text-center text-white font-bold' >Most Popular Prodcuts</h1>
-  <div className="flex flex-wrap gap-6 justify-center p-6 bg-zinc-900 min-h-screen pt-10">
-      {products.map((product, index) => (
-        <Card key={index} {...product} />
-      ))}
-    </div>
-  </div>
-      
+          {/* Product Code Begins Here */}
 
-  {/* Attractive Horizontal Line */}
-  <div className="my-8 relative">
-    <hr className="border-t-2 border-amber-300 w-3/4 mx-auto" />
-  </div>
+          <div className=" bg-zinc-900 pt-10">
+            <h1 className="text-center text-white font-bold">
+              Most Popular Prodcuts
+            </h1>
+            <div className="flex flex-wrap gap-6 justify-center p-6 bg-zinc-900 min-h-screen pt-10">
+              {products.map((product, index) => (
+                <Card key={index} {...product} />
+              ))}
+            </div>
+          </div>
 
-{/* popular categories */}
-<div className="flex flex-col w-full h-fit mt-12 my-2">
-  <div className="flex justify-center items-center">
-    <h1 className="font-extrabold font-title_font tracking-wider text-2xl text-amber-300 drop-shadow-[0px_0px_30px_rgba(192,33,110,1)] py-3">
-      Shop by Pet
-    </h1>
-  </div>
+          {/* Attractive Horizontal Line */}
+          <div className="my-8 relative">
+            <hr className="border-t-2 border-amber-300 w-3/4 mx-auto" />
+          </div>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 px-2 my-4 py-6  place-items-center justify-end">
-    <CategoriesCard
-      categoryName={"Dogs"}
-      ur={
-        "https://plus.unsplash.com/premium_photo-1694819488591-a43907d1c5cc?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGRvZ3xlbnwwfHwwfHx8MA%3D%3D"
-      }
-    />
-    <CategoriesCard
-      categoryName={"Cats"}
-      ur={
-        "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNhdHN8ZW58MHx8MHx8fDA%3D"
-      }
-    />
-    <CategoriesCard
-      categoryName={"Rabbits"}
-      ur={
-        "https://media.istockphoto.com/id/173893247/photo/rabbit.webp?a=1&b=1&s=612x612&w=0&k=20&c=lLEYLC7Tlkb2PyIDda5Zi2kmpaRN8PmCSfuYDCJe2lY="
-      }
-    />
-    <CategoriesCard
-      categoryName={"Fishes"}
-      ur={
-        "https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmlzaHxlbnwwfHwwfHx8MA%3D%3D"
-      }
-    />
-    <CategoriesCard
-      categoryName={"Birds"}
-      ur={
-        "https://plus.unsplash.com/premium_photo-1664543649513-c21242431e6e?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAxfHxCaXJkc3xlbnwwfHwwfHx8MA%3D%3D"
-      }
-    />
-    <CategoriesCard
-      categoryName={"Reptiles"}
-      ur={
-        "https://media.istockphoto.com/id/1081594106/photo/green-iguana.webp?a=1&b=1&s=612x612&w=0&k=20&c=kqkbdhmpmkq3-UjzXZVp2ED2SaMsx9CNMD-DSwBl9EU="
-      }
-    />
-  </div>
-</div>
-{/* popular categories end */}
+          {/* popular categories */}
+          <div className="flex flex-col w-full h-fit mt-12 my-2">
+            <div className="flex justify-center items-center">
+              <h1 className="font-extrabold font-title_font tracking-wider text-2xl text-amber-300 drop-shadow-[0px_0px_30px_rgba(192,33,110,1)] py-3">
+                Shop by Pet
+              </h1>
+            </div>
 
-    </div>
-   
-    </Wrapper>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 px-2 my-4 py-6  place-items-center justify-end">
+              <CategoriesCard
+                categoryName={"Dogs"}
+                ur={
+                  "https://plus.unsplash.com/premium_photo-1694819488591-a43907d1c5cc?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGRvZ3xlbnwwfHwwfHx8MA%3D%3D"
+                }
+              />
+              <CategoriesCard
+                categoryName={"Cats"}
+                ur={
+                  "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNhdHN8ZW58MHx8MHx8fDA%3D"
+                }
+              />
+              <CategoriesCard
+                categoryName={"Rabbits"}
+                ur={
+                  "https://media.istockphoto.com/id/173893247/photo/rabbit.webp?a=1&b=1&s=612x612&w=0&k=20&c=lLEYLC7Tlkb2PyIDda5Zi2kmpaRN8PmCSfuYDCJe2lY="
+                }
+              />
+              <CategoriesCard
+                categoryName={"Fishes"}
+                ur={
+                  "https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmlzaHxlbnwwfHwwfHx8MA%3D%3D"
+                }
+              />
+              <CategoriesCard
+                categoryName={"Birds"}
+                ur={
+                  "https://plus.unsplash.com/premium_photo-1664543649513-c21242431e6e?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAxfHxCaXJkc3xlbnwwfHwwfHx8MA%3D%3D"
+                }
+              />
+              <CategoriesCard
+                categoryName={"Reptiles"}
+                ur={
+                  "https://media.istockphoto.com/id/1081594106/photo/green-iguana.webp?a=1&b=1&s=612x612&w=0&k=20&c=kqkbdhmpmkq3-UjzXZVp2ED2SaMsx9CNMD-DSwBl9EU="
+                }
+              />
+            </div>
+          </div>
+          {/* popular categories end */}
+        </div>
+      </Wrapper>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

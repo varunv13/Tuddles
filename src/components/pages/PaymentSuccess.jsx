@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { backend_url } from '../../utils/Config';
-import axios from 'axios';
-import { toast } from 'react-toastify';
+import React, { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { backend_url } from "../../utils/Config";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const PaymentSuccess = () => {
   const query = new URLSearchParams(useLocation().search);
@@ -19,14 +19,18 @@ const PaymentSuccess = () => {
       }
 
       const orderData = JSON.parse(storedOrderData);
-      orderData.status="Confirmed";
-      orderData.payment_Id = reference; 
+      orderData.status = "Confirmed";
+      orderData.payment_Id = reference;
 
       try {
-        const response = await axios.post(`${backend_url}/api/v1/orders/singleOrderOnline`, orderData, {
-          headers: { "Content-Type": "application/json" },
-        });
-      
+        const response = await axios.post(
+          `${backend_url}/api/v1/orders/singleOrderOnline`,
+          orderData,
+          {
+            headers: { "Content-Type": "application/json" },
+          },
+        );
+
         if (response?.data?.statusCode === 201) {
           console.log(response?.data);
           toast.success("🐕‍🦺 Wou wou...Order Placed ✅");
@@ -37,7 +41,7 @@ const PaymentSuccess = () => {
         }
       } catch (err) {
         console.error("Order error:", err.response?.data || err.message);
-      
+
         // Check if the order was actually created but response broke
         if (err.response?.data?.statusCode === 201) {
           toast.success("🐕‍🦺 Order Placed (with some issues) ✅");
