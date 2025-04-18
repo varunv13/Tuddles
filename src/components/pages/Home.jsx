@@ -111,107 +111,145 @@ const Home = () => {
   const navigate = useNavigate();
   const [auth, setAuth] = useAuth();
   return (
+
     <>
       <Wrapper current={"home"}>
-        <div className="text-2xl cursor-custom w-full h-auto bg-night">
-          {/* corousal */}
-          <HeaderCarousel />
-          {/* corousal end */}
+        <div className="w-full bg-gradient-to-b from-yellow-100 to-slate-500 overflow-x-hidden">
+          {/* Hero Section */}
+          <div className="relative overflow-hidden h-96 bg-gradient-to-r from-purple-600 to-blue-500 animate-gradient">
+  {/* Swimming fish elements */}
+  <div className="absolute top-1/4 -left-20 animate-swim-1">🐠</div>
+  <div className="absolute top-1/3 -left-32 animate-swim-2">🐡</div>
+  <div className="absolute top-1/2 -left-24 animate-swim-3">🐟</div>
+  <div className="absolute top-3/4 -left-28 animate-swim-4">🦈</div>
 
-          {/* bank offer start  */}
-          {/* <div className='w-full px-5 my-2'>
-         <img src='https://supertails.com/cdn/shop/files/Homepage_desk-min_34987ee0-64bf-417a-b4f8-9af815c22588.png?v=1732992049'></img>
-      </div> */}
-          {/* bank offer end  */}
+  {/* Existing content */}
+  <div className="absolute inset-0 flex items-center justify-center">
+    <div className="text-center text-white space-y-6 px-4 relative z-10">
+      <h1 className="text-5xl font-bold tracking-tight drop-shadow-lg animate-fade-in-up">
+        Premium Pet Essentials
+      </h1>
+      <p className="text-xl font-light max-w-2xl mx-auto animate-fade-in-up delay-100">
+        Discover curated products for your beloved companions
+      </p>
+    </div>
+  </div>
+</div>
 
-          {/* Popular products  */}
-          {/* <div className='flex flex-col w-full h-fit my-2 p-6'>
-       <div className='flex justify-center items-center'>
-        <h1 className='font-extrabold font-title_font tracking-wider text-2xl text-amber-300 drop-shadow-[0px_0px_30px_rgba(192,33,110,1)] p-3'>Popular Products</h1>
-       </div>
-       <div className='flex flex-wrap justify-center md:justify-normal items-center gap-4 my-3'>
-        <ProductCard ur={'https://supertails.com/cdn/shop/files/Frame_1405178184-min.png?v=1732537085'}/>
-        <ProductCard  ur={'https://supertails.com/cdn/shop/files/Frame_1405180467-min.png?v=1733377612'}/>
-        <ProductCard  ur={'https://supertails.com/cdn/shop/files/Frame_1405180047.png?v=1733205957'}/>
-        <ProductCard  ur={'https://supertails.com/cdn/shop/files/Frame_1405178183-min.png?v=1732537526'}/>
-        <ProductCard  ur={'https://supertails.com/cdn/shop/files/Frame_1405180472-min_800x.png?v=1733379910'}/>
-        <ProductCard  ur={'https://supertails.com/cdn/shop/files/SKATRSTOYS_19.png?v=1714715536'}/>
-       </div>
-      </div> */}
-          {/* Popular products end  */}
+          {/* Featured Products */}
+          <div className="max-w-7xl mx-auto px-4 py-16">
+            <div className="mb-14 text-center">
+              <span className="bg-purple-100 text-purple-600 px-6 py-2 rounded-full text-sm font-semibold">
+                Best Sellers
+              </span>
+              <h2 className="mt-4 text-3xl font-bold text-gray-900">
+                Most Loved by Pet Parents
+              </h2>
+            </div>
 
-          {/* New Code Begins */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {products.slice(0, 4).map((product, index) => (
 
-          {/* Product Code Begins Here */}
+                <Card
+                  {...product}
+                  className="p-4"
+                  imageClassName="rounded-t-xl"
+                  priceStyle="text-purple-600"
+                />
 
-          <div className=" bg-zinc-900 pt-10">
-            <h1 className="text-center text-white font-bold">
-              Most Popular Prodcuts
-            </h1>
-            <div className="flex flex-wrap gap-6 justify-center p-6 bg-zinc-900 min-h-screen pt-10">
-              {products.map((product, index) => (
-                <Card key={index} {...product} />
               ))}
             </div>
           </div>
 
-          {/* Attractive Horizontal Line */}
-          <div className="my-8 relative">
-            <hr className="border-t-2 border-amber-300 w-3/4 mx-auto" />
-          </div>
+          {/* Category Showcase */}
+          <div className="bg-gray-50/65 py-16">
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="mb-14 text-center">
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                  Shop by Category
+                </h2>
+                <p className="text-gray-600 max-w-xl mx-auto">
+                  Find everything you need for different types of pets
+                </p>
+              </div>
 
-          {/* popular categories */}
-          <div className="flex flex-col w-full h-fit mt-12 my-2">
-            <div className="flex justify-center items-center">
-              <h1 className="font-extrabold font-title_font tracking-wider text-2xl text-amber-300 drop-shadow-[0px_0px_30px_rgba(192,33,110,1)] py-3">
-                Shop by Pet
-              </h1>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 px-2 my-4 py-6  place-items-center justify-end">
-              <CategoriesCard
-                categoryName={"Dogs"}
-                ur={
-                  "https://plus.unsplash.com/premium_photo-1694819488591-a43907d1c5cc?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGRvZ3xlbnwwfHwwfHx8MA%3D%3D"
-                }
-              />
-              <CategoriesCard
-                categoryName={"Cats"}
-                ur={
-                  "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNhdHN8ZW58MHx8MHx8fDA%3D"
-                }
-              />
-              <CategoriesCard
-                categoryName={"Rabbits"}
-                ur={
-                  "https://media.istockphoto.com/id/173893247/photo/rabbit.webp?a=1&b=1&s=612x612&w=0&k=20&c=lLEYLC7Tlkb2PyIDda5Zi2kmpaRN8PmCSfuYDCJe2lY="
-                }
-              />
-              <CategoriesCard
-                categoryName={"Fishes"}
-                ur={
-                  "https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmlzaHxlbnwwfHwwfHx8MA%3D%3D"
-                }
-              />
-              <CategoriesCard
-                categoryName={"Birds"}
-                ur={
-                  "https://plus.unsplash.com/premium_photo-1664543649513-c21242431e6e?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAxfHxCaXJkc3xlbnwwfHwwfHx8MA%3D%3D"
-                }
-              />
-              <CategoriesCard
-                categoryName={"Reptiles"}
-                ur={
-                  "https://media.istockphoto.com/id/1081594106/photo/green-iguana.webp?a=1&b=1&s=612x612&w=0&k=20&c=kqkbdhmpmkq3-UjzXZVp2ED2SaMsx9CNMD-DSwBl9EU="
-                }
-              />
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                {[
+                  { name: "Dogs", icon: "🐶" },
+                  { name: "Cats", icon: "🐱" },
+                  { name: "Birds", icon: "🦜" },
+                  { name: "Fish", icon: "🐠" },
+                  { name: "Reptiles", icon: "🦎" },
+                  { name: "Small Pets", icon: "🐹" },
+                ].map((category, index) => (
+                  <button
+                    key={index}
+                    className="group bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                  >
+                    <div className="text-4xl mb-3 group-hover:text-purple-600 transition-colors">
+                      {category.icon}
+                    </div>
+                    <h3 className="font-semibold text-gray-800 group-hover:text-purple-600 transition-colors">
+                      {category.name}
+                    </h3>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
-          {/* popular categories end */}
+
+          {/* All Products Grid */}
+          <div className="max-w-7xl mx-auto px-4 py-16">
+            <div className="mb-14 text-center">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Explore Our Collection
+              </h2>
+              <div className="border-b-2 border-gray-200 pb-14">
+                <div className="max-w-2xl mx-auto text-gray-600">
+                  Premium quality products for your pet's health and happiness
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+              {products.map((product, index) => (
+                <div
+                  key={index}
+                  className="relative group  rounded-lg overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-purple-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <Card
+                    {...product}
+                    className="p-4"
+                    imageClassName="w-full h-64 object-cover"
+                    priceStyle="text-lg font-bold text-purple-600"
+                    titleStyle="text-gray-900 font-semibold"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <div className="bg-purple-600 text-white py-16">
+            <div className="max-w-4xl mx-auto text-center px-4">
+              <h3 className="text-3xl font-bold mb-6">
+                Join Our Pet Lovers Community
+              </h3>
+              <p className="text-lg mb-8">
+                Get exclusive offers, pet care tips, and early access to new products
+              </p>
+              <button className="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-purple-50 transition-colors">
+                Sign Up Now
+              </button>
+            </div>
+          </div>
         </div>
       </Wrapper>
     </>
+
   );
 };
 
 export default Home;
+

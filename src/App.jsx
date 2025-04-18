@@ -21,7 +21,7 @@ import Contact from "./shared/Contact";
 import Vet from "./components/pages/Vet";
 import Adapt from "./components/pages/Adapt";
 
-import Wrapper from "./components/Layout/Wrapper";
+// import Wrapper from "./components/Layout/Wrapper";
 
 function App() {
   const [cookies] = useCookies(["token"]);
