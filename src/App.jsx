@@ -20,6 +20,7 @@ import PaymentSuccess from "./components/pages/PaymentSuccess";
 import Contact from "./shared/Contact";
 import Vet from "./components/pages/Vet";
 import Adapt from "./components/pages/Adapt";
+import AdminOrderPanel from "./components/pages/protected/AdminOrderPanel";
 
 // import Wrapper from "./components/Layout/Wrapper";
 
@@ -36,7 +37,7 @@ function App() {
               path="/"
               element={
                 // <Wrapper>
-                  <Home />
+                <Home />
                 // </Wrapper>
               }
             />
@@ -44,7 +45,7 @@ function App() {
               path="/search-product"
               element={
                 // <Wrapper>
-                  <SearchResult />
+                <SearchResult />
                 // </Wrapper>
               }
             />
@@ -52,7 +53,7 @@ function App() {
               path="/shop"
               element={
                 // <Wrapper>
-                  <Shop />
+                <Shop />
                 // </Wrapper>
               }
             />
@@ -60,7 +61,7 @@ function App() {
               path="/p/:pID"
               element={
                 // <Wrapper>
-                  <SingleProduct />
+                <SingleProduct />
                 // </Wrapper>
               }
             />
@@ -68,7 +69,7 @@ function App() {
               path="/o/:pID"
               element={
                 // <Wrapper>
-                  <OrderPage />
+                <OrderPage />
                 // </Wrapper>
               }
             />
@@ -76,7 +77,7 @@ function App() {
               path="/pay/:pID"
               element={
                 // <Wrapper>
-                  <Payment />
+                <Payment />
                 // </Wrapper>
               }
             />
@@ -84,7 +85,7 @@ function App() {
               path="/paymentSuccess"
               element={
                 // <Wrapper>
-                  <PaymentSuccess />
+                <PaymentSuccess />
                 // </Wrapper>
               }
             />
@@ -92,7 +93,7 @@ function App() {
               path="/dashboard"
               element={
                 // <Wrapper>
-                  <Dashboard />
+                <Dashboard />
                 // </Wrapper>
               }
             />
@@ -100,7 +101,7 @@ function App() {
               path="/profile"
               element={
                 // <Wrapper>
-                  <EditProfile />
+                <EditProfile />
                 // </Wrapper>
               }
             />
@@ -108,7 +109,7 @@ function App() {
               path="/dashboard/createproduct"
               element={
                 // <Wrapper>
-                  <CreateProduct />
+                <CreateProduct />
                 // </Wrapper>
               }
             />
@@ -116,7 +117,7 @@ function App() {
               path="/dashboard/own-product"
               element={
                 // <Wrapper>
-                  <OwnProduct />
+                <OwnProduct />
                 // </Wrapper>
               }
             />
@@ -124,7 +125,7 @@ function App() {
               path="/dashboard/update-product"
               element={
                 // <Wrapper>
-                  <UpdateProduct />
+                <UpdateProduct />
                 // </Wrapper>
               }
             />
@@ -132,7 +133,7 @@ function App() {
               path="/vet"
               element={
                 // <Wrapper>
-                  <Vet />
+                <Vet />
                 // </Wrapper>
               }
             />
@@ -140,7 +141,7 @@ function App() {
               path="/adapt"
               element={
                 // <Wrapper>
-                  <Adapt />
+                <Adapt />
                 // </Wrapper>
               }
             />
@@ -148,7 +149,15 @@ function App() {
               path="/contact"
               element={
                 // <Wrapper>
-                  <Contact />
+                <Contact />
+                // </Wrapper>
+              }
+            />
+            <Route
+              path="/dashboard/admin/update-order"
+              element={
+                // <Wrapper>
+                <AdminOrderPanel />
                 // </Wrapper>
               }
             />
@@ -156,10 +165,12 @@ function App() {
               path="*"
               element={
                 // <Wrapper>
-                  <Home />
+                <Home />
                 // </Wrapper>
               }
             />
+
+
           </>
         ) : (
           <>

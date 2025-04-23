@@ -92,7 +92,7 @@ const Dashboard = () => {
               {role === "admin" && (
                 <>
                   <DashboardButton label="Create Category" />
-                  <DashboardButton label="Order Update" />
+                  <DashboardButton label="Order Update" path="/dashboard/admin/update-order"/>
                   <DashboardButton label="Set Appointments" />
                 </>
               )}
