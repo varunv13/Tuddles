@@ -140,7 +140,6 @@
 
 // export default Shop;
 
-
 import React, { useEffect, useState } from "react";
 import Wrapper from "../Layout/wrapper";
 import axios from "axios";
@@ -315,7 +314,7 @@ const categories = [
 //                 ))}
 //               </ul>
 //             </div>
-  
+
 //             <div>
 //               <h3 className="text-lg font-semibold text-gray-800 mb-3">Price</h3>
 //               <ul className="space-y-2">
@@ -335,7 +334,7 @@ const categories = [
 //                 ))}
 //               </ul>
 //             </div>
-  
+
 //             <button
 //               onClick={() => {
 //                 setSelectedCategory(null);
@@ -346,13 +345,13 @@ const categories = [
 //               Reset Filters
 //             </button>
 //           </aside>
-  
+
 //           {/* Product Grid */}
 //           <main className="w-full md:w-3/4">
 //             <h1 className="text-3xl font-semibold text-center text-gray-800 mb-6">
 //               Happy Cuddle Products
 //             </h1>
-  
+
 //             {filteredProducts.length ? (
 //               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 //                 {filteredProducts.map((product) => (
@@ -373,7 +372,6 @@ const categories = [
 //       </div>
 //     </Wrapper>
 //   );
-  
 
 // };
 
@@ -406,7 +404,7 @@ const Shop = () => {
 
     if (selectedPrice) {
       result = result.filter(
-        (p) => p.price >= selectedPrice.min && p.price <= selectedPrice.max
+        (p) => p.price >= selectedPrice.min && p.price <= selectedPrice.max,
       );
     }
 
@@ -421,8 +419,8 @@ const Shop = () => {
   const isSidebarCompact = selectedCategory || selectedPrice;
 
   // Get the background color classes dynamically based on selection
-  const categoryBgClass = selectedCategory ? 'bg-[#FBC4AB]' : 'bg-[#F7BFB4]';
-  const priceBgClass = selectedPrice ? 'bg-[#FBC4AB]' : 'bg-[#F7BFB4]';
+  const categoryBgClass = selectedCategory ? "bg-[#FBC4AB]" : "bg-[#F7BFB4]";
+  const priceBgClass = selectedPrice ? "bg-[#FBC4AB]" : "bg-[#F7BFB4]";
 
   return (
     <Wrapper current={"shop"}>
@@ -431,12 +429,13 @@ const Shop = () => {
           {/* Sidebar */}
           <aside
             className={`w-full md:w-1/4 rounded-2xl p-4 shadow-md space-y-8 transition-all duration-300 ${
-              isSidebarCompact ? 'h-auto' : 'h-50'
-            }`}
-          >
+              isSidebarCompact ? "h-auto" : "h-50"
+            }`}>
             {/* Category Section */}
             <div className={`${categoryBgClass} p-4 rounded-lg`}>
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">Category</h3>
+              <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                Category
+              </h3>
               <ul className="space-y-2">
                 {categories.map((category) => (
                   <li key={category}>
@@ -457,7 +456,9 @@ const Shop = () => {
 
             {/* Price Section */}
             <div className={`${priceBgClass} p-4 rounded-lg`}>
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">Price</h3>
+              <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                Price
+              </h3>
               <ul className="space-y-2">
                 {priceRanges.map((range) => (
                   <li key={range.label}>
@@ -482,8 +483,7 @@ const Shop = () => {
                 setSelectedCategory(null);
                 setSelectedPrice(null);
               }}
-              className="w-full bg-accent text-white font-medium py-2 rounded-lg hover:brightness-105 transition-all duration-200"
-            >
+              className="w-full bg-accent text-white font-medium py-2 rounded-lg hover:brightness-105 transition-all duration-200">
               Reset Filters
             </button>
           </aside>
@@ -492,7 +492,7 @@ const Shop = () => {
           <main className="w-full md:w-3/4">
             <h1 className="text-3xl font-semibold text-center text-gray-800 mb-6">
               Happy Cuddle Products
-  v          </h1>
+            </h1>
 
             {filteredProducts.length ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -507,7 +507,9 @@ const Shop = () => {
                 ))}
               </div>
             ) : (
-              <div className="text-center text-gray-600">No Product Available</div>
+              <div className="text-center text-gray-600">
+                No Product Available
+              </div>
             )}
           </main>
         </div>
@@ -623,7 +625,6 @@ const Shop = () => {
 //   </button>
 // </aside>
 
-
 //           {/* Product Grid */}
 //           <main className="w-full md:w-3/4">
 //             <h1 className="text-3xl font-semibold text-center text-gray-800 mb-6">
@@ -653,4 +654,3 @@ const Shop = () => {
 // };
 
 export default Shop;
-

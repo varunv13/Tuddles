@@ -173,9 +173,9 @@ const Navbar = ({ currentRoute }) => {
             </li>
             <li>
               <Navbutton
-                destination={"/adapt"}
-                label={"Adopt"}
-                active={currentRoute == "adapt"}
+                destination={"/pets"}
+                label={"Pet"}
+                active={currentRoute == "pets"}
               />
             </li>
             <li className={`${isMobileMenuOpen ? "block" : "hidden"}`}>

@@ -19,10 +19,10 @@ import Payment from "./components/pages/Payment";
 import PaymentSuccess from "./components/pages/PaymentSuccess";
 import Contact from "./shared/Contact";
 import Vet from "./components/pages/Vet";
-import Adapt from "./components/pages/Adapt";
+import Pets from "./components/pages/Pets";
+import SinglePet from "./components/pages/SinglePet";
+import OrderPetPage from "./components/pages/OrderPetPage";
 import AdminOrderPanel from "./components/pages/protected/AdminOrderPanel";
-
-// import Wrapper from "./components/Layout/Wrapper";
 
 function App() {
   const [cookies] = useCookies(["token"]);
@@ -33,144 +33,26 @@ function App() {
       <Routes>
         {cookie ? (
           <>
-            <Route
-              path="/"
-              element={
-                // <Wrapper>
-                <Home />
-                // </Wrapper>
-              }
-            />
-            <Route
-              path="/search-product"
-              element={
-                // <Wrapper>
-                <SearchResult />
-                // </Wrapper>
-              }
-            />
-            <Route
-              path="/shop"
-              element={
-                // <Wrapper>
-                <Shop />
-                // </Wrapper>
-              }
-            />
-            <Route
-              path="/p/:pID"
-              element={
-                // <Wrapper>
-                <SingleProduct />
-                // </Wrapper>
-              }
-            />
-            <Route
-              path="/o/:pID"
-              element={
-                // <Wrapper>
-                <OrderPage />
-                // </Wrapper>
-              }
-            />
-            <Route
-              path="/pay/:pID"
-              element={
-                // <Wrapper>
-                <Payment />
-                // </Wrapper>
-              }
-            />
-            <Route
-              path="/paymentSuccess"
-              element={
-                // <Wrapper>
-                <PaymentSuccess />
-                // </Wrapper>
-              }
-            />
-            <Route
-              path="/dashboard"
-              element={
-                // <Wrapper>
-                <Dashboard />
-                // </Wrapper>
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                // <Wrapper>
-                <EditProfile />
-                // </Wrapper>
-              }
-            />
-            <Route
-              path="/dashboard/createproduct"
-              element={
-                // <Wrapper>
-                <CreateProduct />
-                // </Wrapper>
-              }
-            />
-            <Route
-              path="/dashboard/own-product"
-              element={
-                // <Wrapper>
-                <OwnProduct />
-                // </Wrapper>
-              }
-            />
-            <Route
-              path="/dashboard/update-product"
-              element={
-                // <Wrapper>
-                <UpdateProduct />
-                // </Wrapper>
-              }
-            />
-            <Route
-              path="/vet"
-              element={
-                // <Wrapper>
-                <Vet />
-                // </Wrapper>
-              }
-            />
-            <Route
-              path="/adapt"
-              element={
-                // <Wrapper>
-                <Adapt />
-                // </Wrapper>
-              }
-            />
-            <Route
-              path="/contact"
-              element={
-                // <Wrapper>
-                <Contact />
-                // </Wrapper>
-              }
-            />
-            <Route
-              path="/dashboard/admin/update-order"
-              element={
-                // <Wrapper>
-                <AdminOrderPanel />
-                // </Wrapper>
-              }
-            />
-            <Route
-              path="*"
-              element={
-                // <Wrapper>
-                <Home />
-                // </Wrapper>
-              }
-            />
-
-
+            <Route path="/" element={<Home />} />
+            <Route path="/search-product" element={<SearchResult />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/p/:pID" element={<SingleProduct />} />
+            <Route path="/o/:pID" element={<OrderPage />} /> {/* For Product */}
+            <Route path="/pay/:pID" element={<Payment />} /> {/* For Product */}
+            <Route path="/paymentSuccess" element={<PaymentSuccess />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/profile" element={<EditProfile />} />
+            <Route path="/dashboard/createproduct" element={<CreateProduct />} />
+            <Route path="/dashboard/own-product" element={<OwnProduct />} />
+            <Route path="/dashboard/update-product" element={<UpdateProduct />} />
+            <Route path="/vet" element={<Vet />} />
+            <Route path="/pets" element={<Pets />} />
+            <Route path="/pet/:petID" element={<SinglePet />} /> {/* For Pet */}
+            <Route path="/o/pet/:petID" element={<OrderPetPage />} /> {/* For Pet */}
+            <Route path="/pay/pet/:petID" element={<Payment />} /> {/* For Pet */}
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/dashboard/admin/update-order" element={<AdminOrderPanel />} />
+            <Route path="*" element={<Home />} />
           </>
         ) : (
           <>
