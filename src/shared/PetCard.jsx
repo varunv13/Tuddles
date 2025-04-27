@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const PetCard = ({ key, petID, image, name, price, description }) => {
+const PetCard = ({ petID, image, name, price, description }) => {
   return (
     <div className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
       <img src={image} alt={name} className="w-full h-48 object-cover rounded-lg mb-4" />

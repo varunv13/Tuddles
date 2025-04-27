@@ -168,7 +168,7 @@ const SinglePet = () => {
 
               <button
                 className="w-full bg-accent hover:bg-orange-500 text-white py-3 rounded-xl font-bold text-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 ease-in-out"
-                onClick={() => navigate(`/o/${petID}`)}
+                onClick={() => navigate(`/o/pet/${petID}`)}
               >
                 🛒 Order Now
               </button>

@@ -365,11 +365,6 @@
 
 // export default Pets;
 
-import React, { useEffect, useState } from "react";
-import Wrapper from "../Layout/wrapper";
-import axios from "axios";
-import { backend_url } from "../../utils/Config";
-import PetCard from "../../shared/PetCard"; // Correct Import
 
 // const Pets = () => {
 //   const [pets, setPets] = useState([]); // state for pets data
@@ -829,6 +824,13 @@ import PetCard from "../../shared/PetCard"; // Correct Import
 // import Wrapper from "../components/Wrapper"; // adjust the path if different
 // import PetCard from "../components/PetCard"; // adjust the path if different
 // import { backend_url } from "../utils/constants"; // adjust the path if different
+
+
+import React, { useEffect, useState } from "react";
+import Wrapper from "../Layout/wrapper";
+import axios from "axios";
+import { backend_url } from "../../utils/Config";
+import PetCard from "../../shared/PetCard"; // Correct Import
 
 const priceRanges = [
   { label: "Under $300", min: 0, max: 300 },

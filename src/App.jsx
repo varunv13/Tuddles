@@ -23,6 +23,7 @@ import Pets from "./components/pages/Pets";
 import SinglePet from "./components/pages/SinglePet";
 import OrderPetPage from "./components/pages/OrderPetPage";
 import AdminOrderPanel from "./components/pages/protected/AdminOrderPanel";
+import PetPayment from "./components/pages/PetPayment";
 
 function App() {
   const [cookies] = useCookies(["token"]);
@@ -37,8 +38,8 @@ function App() {
             <Route path="/search-product" element={<SearchResult />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/p/:pID" element={<SingleProduct />} />
-            <Route path="/o/:pID" element={<OrderPage />} /> {/* For Product */}
-            <Route path="/pay/:pID" element={<Payment />} /> {/* For Product */}
+            <Route path="/o/:pID" element={<OrderPage />} /> {/* Order Product */}
+            <Route path="/pay/:pID" element={<Payment />} /> {/* Payment for Product */}
             <Route path="/paymentSuccess" element={<PaymentSuccess />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/profile" element={<EditProfile />} />
@@ -47,9 +48,9 @@ function App() {
             <Route path="/dashboard/update-product" element={<UpdateProduct />} />
             <Route path="/vet" element={<Vet />} />
             <Route path="/pets" element={<Pets />} />
-            <Route path="/pet/:petID" element={<SinglePet />} /> {/* For Pet */}
-            <Route path="/o/pet/:petID" element={<OrderPetPage />} /> {/* For Pet */}
-            <Route path="/pay/pet/:petID" element={<Payment />} /> {/* For Pet */}
+            <Route path="/pet/:petID" element={<SinglePet />} />
+            <Route path="/o/pet/:petID" element={<OrderPetPage />} />
+            <Route path="/pay-pet/:petID" element={<PetPayment  />} /> {/* Payment for Pet */}
             <Route path="/contact" element={<Contact />} />
             <Route path="/dashboard/admin/update-order" element={<AdminOrderPanel />} />
             <Route path="*" element={<Home />} />
